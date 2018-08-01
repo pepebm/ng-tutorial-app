@@ -3,21 +3,37 @@ import { NgModule } from '@angular/core';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule,
+         MatToolbarModule,
+         MatIconModule,
+         MatMenuModule,
+         MatExpansionModule } from '@angular/material';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { DishesComponent } from './dishes/dishes.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { CreateDishComponent } from './dishes/create-dish/create-dish.component';
+import { ListDishComponent } from './dishes/list-dish/list-dish.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DishesComponent
+    DishesComponent,
+    CreateDishComponent,
+    ListDishComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     NgbModule.forRoot(),
-    MatInputModule
+    MatInputModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatMenuModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

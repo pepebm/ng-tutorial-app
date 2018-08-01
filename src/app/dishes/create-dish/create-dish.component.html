@@ -1,0 +1,15 @@
+<div class="card">
+  <div class="card-title">
+    <h2>Add a new dish</h2>
+    <p class="text-muted">We'll look into the dish review monthly and evaluate the posibility of making it!</p>
+    <p class="text-muted">If you win you'll get a free dinner daily*</p>
+  </div>
+  <div class="card-content">
+    <form class="form-group">
+      <mat-form-field>
+        <input matInput type="text" placeholder="Name" [(ngModel)]="newDish.name" name="name">
+      </mat-form-field>
+      <a class="btn btn-primary"(click)="onSave()">Save</a>
+    </form>
+  </div>
+</div>

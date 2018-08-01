@@ -1,0 +1,10 @@
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let dish of dishes">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{dish.id}} - {{dish.name}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <p>{{dish.desc}}</p>
+  </mat-expansion-panel>
+</mat-accordion>
