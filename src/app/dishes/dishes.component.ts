@@ -1,23 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
-import { Dish } from '../models/dish';
+import { Dish } from '../models/dish.model';
 
 @Component({
   selector: 'dishes',
   templateUrl: './dishes.component.html',
   styleUrls: ['./dishes.component.scss']
 })
-export class DishesComponent implements OnInit {
+export class DishesComponent {
 
-  dish: Dish = {
-    id: 1,
-    name: 'French fries'
-  };
+  dishes: Dish[] = [];
 
-  constructor() { }
-
-  ngOnInit() {
-
+  onDishAdded(dish){
+    const lastIndex = this.dishes.length;
+    dish.id = lastIndex;
+    this.dishes.push(dish);
   }
-
 }

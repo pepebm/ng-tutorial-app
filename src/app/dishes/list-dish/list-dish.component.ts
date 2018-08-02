@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Dish } from '../../models/dish';
+
+import { Dish } from '../../models/dish.model';
+import { DishesService } from '../../services/dishes.service';
 
 @Component({
   selector: 'list-dish',
@@ -8,28 +10,14 @@ import { Dish } from '../../models/dish';
 })
 export class ListDishComponent implements OnInit {
 
-  dishes = [
-    {
-      id: 1,
-      name: 'Tacos',
-      desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt uea',
-    },
-    {
-      id: 2,
-      name: 'Sushi',
-      desc: 'Lorem ipsum dolor',
-    },
-    {
-      id: 3,
-      name: 'Hot Dog',
-      desc: 'Pan y salchcicha para el pueblo'
-    }
-  ];
+  dishes: Dish[] = [];
 
-  constructor() { }
+  constructor(public dishesService: DishesService) {}
 
   ngOnInit() {
-
+    this.dishes = this.dishesService.getDishes();
+    this.dishesService.getDishesUpdateListener
+      .subscribe();
   }
 
 }

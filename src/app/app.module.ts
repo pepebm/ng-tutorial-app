@@ -7,7 +7,8 @@ import { MatInputModule,
          MatToolbarModule,
          MatIconModule,
          MatMenuModule,
-         MatExpansionModule } from '@angular/material';
+         MatExpansionModule,
+         MatButtonModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -33,7 +34,8 @@ import { ListDishComponent } from './dishes/list-dish/list-dish.component';
     MatToolbarModule,
     MatIconModule,
     MatMenuModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
