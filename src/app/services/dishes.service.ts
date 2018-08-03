@@ -1,15 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 import { Dish } from '../models/dish.model';
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class DishesService {
   private dishes: Dish[] = [];
   private dishesUpdated = new Subject<Dish[]>();
 
+  constructor(private http: HttpClient) {}
+
   getDishes(){
-    return [...this.dishes];
+    this.http.get<{dishes: Dish[]}>('http://localhost:3000/api/dishes')
+      .subscribe(res =>{
+        this.dishes = res.dishes;
+        this.dishesUpdated.next([...this.dishes]);
+      })
+    ;
   }
 
   getDishesUpdateListener(){
@@ -22,7 +30,11 @@ export class DishesService {
       name: name,
       desc: desc
     };
-    this.dishes.push(dish);
-    this.dishesUpdated.next([...this.dishes]);
+    this.http.post<{dishes: Dish[]}>('http://localhost:3000/api/dishes', dish)
+      .subscribe(res =>{
+        this.dishes.push(dish);
+        this.dishesUpdated.next([...this.dishes]);
+      })
+    ;
   }
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 import { Dish } from '../../models/dish.model';
 import { DishesService } from '../../services/dishes.service';
@@ -8,16 +9,22 @@ import { DishesService } from '../../services/dishes.service';
   templateUrl: './list-dish.component.html',
   styleUrls: ['./list-dish.component.scss']
 })
-export class ListDishComponent implements OnInit {
+export class ListDishComponent implements OnInit, OnDestroy {
 
   dishes: Dish[] = [];
+  private dishesSubscription: Subscription;
 
   constructor(public dishesService: DishesService) {}
 
   ngOnInit() {
-    this.dishes = this.dishesService.getDishes();
-    this.dishesService.getDishesUpdateListener
-      .subscribe();
+    let subscription = this.dishesService.getDishesUpdateListener();
+    this.dishesService.getDishes();
+    this.dishesSubscription = subscription
+      .subscribe((dishes: Dish[]) => this.dishes = dishes);
+  }
+
+  ngOnDestroy() {
+    this.dishesSubscription.unsubscribe();
   }
 
 }

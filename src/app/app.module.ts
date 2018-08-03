@@ -10,6 +10,7 @@ import { MatInputModule,
          MatExpansionModule,
          MatButtonModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { DishesComponent } from './dishes/dishes.component';
@@ -35,7 +36,8 @@ import { ListDishComponent } from './dishes/list-dish/list-dish.component';
     MatIconModule,
     MatMenuModule,
     MatExpansionModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
