@@ -1,6 +1,21 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+dotenv.load();
+
+
+const Dish = require('./models/dish');
+
+
+mongoose.connect(`mongodb+srv://peps:${process.env.DB_PASS}@mongocluster-ky7uf.mongodb.net/test?retryWrites=true`)
+  .then(() => {
+    console.log('Connected to database.');
+  })
+  .catch((e)=>{
+    console.log('No connection with db ' + e);
+  });
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -19,7 +34,11 @@ app.use((req, res, next) => {
 });
 
 app.post('/api/dishes', (req, res, next) => {
-  const dish = req.body;
+  const dish = new Dish({
+    name: req.body.name,
+    desc: req.body.desc
+  });
+  console.log(dish);
   res.status(201).json({dish: dish});
 });
 
