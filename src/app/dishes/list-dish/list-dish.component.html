@@ -10,7 +10,7 @@
       <button mat-button color="primary">
         <i class="material-icons">edit</i> EDIT
       </button>
-      <button mat-button color="warn">
+      <button mat-button color="warn" (click)="onDelete(dish.id)">
         <i class="material-icons">delete</i> DELETE
       </button>
     </mat-action-row>

@@ -27,4 +27,8 @@ export class ListDishComponent implements OnInit, OnDestroy {
     this.dishesSubscription.unsubscribe();
   }
 
+  onDelete(dishId: string){
+    this.dishesService.deleteDish(dishId);
+  }
+
 }
