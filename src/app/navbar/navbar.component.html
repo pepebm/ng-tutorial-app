@@ -1,29 +1,63 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <i class="material-icons">
-      fastfood
-    </i>
+    <button mat-icon-button (click)="sidebarNav.toggle()">
+      <i class="material-icons">
+          fastfood
+      </i>
+    </button>
     <div class="text-cetner">
       MenuApp
     </div>
     <div class="pull-right">
-      <a mat-icon-button [matMenuTriggerFor]="menu">
+      <a class="dot-menu" mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon>more_vert</mat-icon>
       </a>
       <mat-menu #menu="matMenu">
         <button mat-menu-item>
-          <mat-icon>dialpad</mat-icon>
-          <span>Redial</span>
-        </button>
-        <button mat-menu-item disabled>
-          <mat-icon>voicemail</mat-icon>
-          <span>Check voicemail</span>
+          <mat-icon>store</mat-icon>
+          <span>RESTAURANT'S PROFILE</span>
         </button>
         <button mat-menu-item>
-          <mat-icon>notifications_off</mat-icon>
-          <span>Disable alerts</span>
+          <mat-icon>person</mat-icon>
+          <span>AGENT'S PROFILE</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>exit_to_app</mat-icon>
+          <span>LOGOUT</span>
         </button>
       </mat-menu>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav mode="push" #sidebarNav>
+      <mat-nav-list>
+          <mat-accordion>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    <img src="/assets/dish_icon.svg" class="svg-icon"> <p>Dishes</p>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <a mat-list-item routerLink="/">
+                  <mat-icon>list</mat-icon> ALL
+                </a>
+                <mat-divider></mat-divider>
+                <a mat-list-item routerLink="/create-dish">
+                  <mat-icon>add</mat-icon> NEW
+                </a>
+                <mat-divider></mat-divider>
+              </mat-expansion-panel>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  Drinks
+                </mat-expansion-panel-header>
+                COMING SOON!
+              </mat-expansion-panel>
+            </mat-accordion>
+      </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

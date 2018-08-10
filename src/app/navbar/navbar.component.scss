@@ -1,3 +1,9 @@
+@import "./../../styles.scss";
+p{
+  color: black !important;
+  margin-top: 4rem;
+  margin-left: 0.5rem;
+}
 mat-toolbar-row{
   display: flex;
   justify-content: space-between;
@@ -8,4 +14,31 @@ mat-toolbar-row{
 a:hover{
   color: white !important;
   text-decoration: none;
+}
+.sidenav-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.mat-sidenav-container{
+  height: 100%;
+}
+.mat-sidenav{
+  @media (min-width: $screen-sm-min) {
+    width: 25%;
+  }
+}
+.mat-nav-list{
+  a:hover{
+    color: black !important;
+  }
+}
+.dot-menu{
+  color: white !important;
+}
+.svg-icon{
+  width: 1.5rem;
+  display: inline;
 }

@@ -8,10 +8,13 @@ import { MatInputModule,
          MatIconModule,
          MatMenuModule,
          MatExpansionModule,
-         MatButtonModule } from '@angular/material';
+         MatButtonModule, 
+         MatSidenavModule,
+         MatListModule} from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { AppRoutingModule } from './app.routing.module';
 import { AppComponent } from './app.component';
 import { DishesComponent } from './dishes/dishes.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -28,6 +31,7 @@ import { ListDishComponent } from './dishes/list-dish/list-dish.component';
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
     NgbModule.forRoot(),
@@ -37,7 +41,9 @@ import { ListDishComponent } from './dishes/list-dish/list-dish.component';
     MatMenuModule,
     MatExpansionModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
