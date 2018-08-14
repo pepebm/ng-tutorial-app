@@ -34,6 +34,10 @@ export class DishesService {
     return this.dishesUpdated.asObservable();
   }
 
+  findDish(id: string){
+    return {...this.dishes.find(d => d.id === id)};
+  }
+
   addDish(name: string, desc: string){
     const dish: Dish = {
       id: null,
