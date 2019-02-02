@@ -1,7 +1,6 @@
 # ng-tutorial-app
-
-![Angular](https://angular.io/generated/images/marketing/home/responsive-framework.svg)
-![Node](https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png)
+<img src="https://angular.io/generated/images/marketing/home/responsive-framework.svg" width="200"/>
+<img src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png" width="200"/>
 
 ## How to run?
 
