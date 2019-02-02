@@ -9,7 +9,7 @@ require('dotenv').load();
 const Dish = require('./models/dish');
 
 
-mongoose.connect(`mongodb+srv://peps:${process.env.DB_PASS}@mongocluster-ky7uf.mongodb.net/${process.env.DB_NAME}?retryWrites=true`)
+mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@mongocluster-ky7uf.mongodb.net/${process.env.DB_NAME}?retryWrites=true`)
   .then(() => console.log('Connected to database.'))
   .catch((e)=> console.log('No connection with db ' + e));
 
