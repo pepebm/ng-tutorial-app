@@ -13,7 +13,7 @@ router.post('/', (req, res, next) => {
         dishId: result._id
       })
     })
-    .catch((e) => res.status(422).json({
+    .catch((e) => res.status(404).json({
       message: e
     }));
 });
