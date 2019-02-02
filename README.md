@@ -1,6 +1,14 @@
 # ng-tutorial-app
-<img src="https://angular.io/generated/images/marketing/home/responsive-framework.svg" width="200"/>
-<img src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png" width="200"/>
+<table>
+  <tr>
+    <td>
+      <img src="https://angular.io/generated/images/marketing/home/responsive-framework.svg" width="200"/>
+    </td>
+    <td>
+      <img src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png" width="200"/>
+    </td>
+  </tr>
+</table>
 
 ## How to run?
 
