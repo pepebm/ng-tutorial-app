@@ -3,17 +3,17 @@ const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const controllers = require('./controllers');
-// Load env variable from .env
+// Load env variable from .env (see .env.sample for more info)
 require('dotenv').load();
 
-
+// MongoDB Atlas cluster
 mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@mongocluster-ky7uf.mongodb.net/${process.env.DB_NAME}?retryWrites=true`)
   .then(() => console.log('Connected to database.'))
   .catch((e)=> console.log('No connection with db ' + e));
 
+// Middleware stuff
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader(
